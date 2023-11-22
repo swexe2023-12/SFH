@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   def index
-    #@users = User.all
+    @users = User.all
   end
 
   def new
@@ -10,7 +10,7 @@ class UsersController < ApplicationController
   def create
     #p = BCrypt::Password.create(params[:user][:pass])
     #user = User.new(uid: params[:user][:uid], pass: p, age: params[:user][:age])
-    @user = User.new(uid: params[:user][:uid], password: params[:user][:password], password_confirmation: params[:user][:password_confirmation], age: params[:user][:age])
+    @user = User.new(uid: params[:user][:uid], password: params[:user][:password], password_confirmation: params[:user][:password_confirmation])
     #user.save
     #redirect_to users_path
     

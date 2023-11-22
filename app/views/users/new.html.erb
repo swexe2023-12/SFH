@@ -1,2 +1,21 @@
-<h1>Users#new</h1>
-<p>Find me in app/views/users/new.html.erb</p>
+<%= form_for @user, url: {action: :create} do |f| %>
+  <p>
+    <%= f.label :uid, 'UID' %>
+    <%= f.text_field :uid %>
+  </p>
+
+  <p>
+    <%= f.label :password, 'PASS' %>
+    <%= f.password_field :password %>
+  </p>
+  
+  <p>
+    <%= f.label :password_confirmation, 'パスワード(確認)：' %>
+    <%= f.password_field :password_confirmation %>
+  </p>
+
+
+  <p>
+    <%= f.submit "登録" %>
+  </p>
+<% end %>

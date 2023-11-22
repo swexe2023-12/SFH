@@ -6,6 +6,8 @@ class TopController < ApplicationController
 
   def login
     user = User.find_by(uid: params[:uid])
+    
+    logger.debug session[:login_uid]
     if user != nil
       login_password = BCrypt::Password.new(user.pass)
       if login_password == params[:pass] #←login_password.==(“my password”)
