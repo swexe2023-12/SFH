@@ -16,8 +16,11 @@ class UsersController < ApplicationController
     
     
     if @user.save
-      redirect_to users_path
+      puts "User saved successfully!"
+      redirect_to root_path
     else
+      puts "User save failed!"
+      puts @user.errors.full_messages
       render 'new'
     end
     

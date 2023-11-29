@@ -1,13 +1,14 @@
-<% @users.each do |e| %>
-<p>
-    UID： <%= e.uid %><br>
-    PASS： <%= e.pass %><br>
-    <%= link_to "削除", user_path(e), data: { "turbo-method": :delete } %>
-</p>
-<% end %>
+<!--<% @users.each do |e| %>-->
+<!--<p>-->
+    <!--UID： <%= e.uid %><br>-->
+    <!--PASS： <%= e.pass %><br>-->
+    <!--<%= link_to "削除", user_path(e), data: { "turbo-method": :delete } %>-->
+<!--</p>-->
+<!--<% end %>-->
 
 <p>
-    <%= link_to "新規登録", new_user_path %>
+    users/index.html.erb
+    <!--<%= link_to "新規登録", new_user_path %>-->
 </p>
 
 <hr>
