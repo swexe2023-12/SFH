@@ -3,11 +3,11 @@
   <%= e.message %>
   
   <% if current_user %>
-    <%= link_to "削除", tweet_path(e), data: { "turbo-method": :delete} %>
+    <%= link_to "削除", message_path(e), data: { "turbo-method": :delete} %>
     <% if e.liked?(current_user) %>
       <%= link_to 'いいね削除', like_path(e), data: { "turbo-method": :delete} %>
     <% else %>
-      <%= link_to 'いいね', likes_path(tweet_id: e.id), data: { "turbo-method": :post} %>
+      <%= link_to 'いいね', likes_path(message_id: e.id), data: { "turbo-method": :post} %>
     <% end %>
   <% end %>
 </p>

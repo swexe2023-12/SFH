@@ -1,6 +1,6 @@
 class User < ApplicationRecord
-    has_many :stocks, dependent: :destroy #ユーザを消すとツイートも消える
-    has_many :likes, dependent: :destroy #ユーザを消すとツイートも消える
+    has_many :stocks, dependent: :destroy #ユーザを消すとコメントも消える
+    has_many :likes, dependent: :destroy #ユーザを消すとコメントも消える
     has_many :like_stocks, through: :likes, source: :stock
     
     validates :password, presence: true, confirmation: true

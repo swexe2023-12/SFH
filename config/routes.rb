@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   resources :users
   resources :comments
   resources :likes, only: [:create, :destroy]
-  resources :stocks, only: [:index, :new]
+  resources :stocks, only: [:index, :new, :create, :show]
   
   root 'top#login'
   
