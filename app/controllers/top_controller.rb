@@ -6,11 +6,11 @@ class TopController < ApplicationController
 
   def login
     user = User.find_by(uid: params[:uid])
-    
-    logger.debug session[:login_uid]
+
     if user != nil
       login_password = BCrypt::Password.new(user.pass)
-      if login_password == params[:pass] #←login_password.==(“my password”)
+      if login_password == params[:pass]
+        logger.debug session[:login_uid]
         session[:login_uid] = user.uid
         redirect_to stocks_path
       else

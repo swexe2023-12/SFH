@@ -4,10 +4,6 @@ class CommentController < ApplicationController
     @comment = Comment.new
   end
 
-  def new
-    @user = User.new
-  end
-
   def create
     comment = Comment.new(message: params[:comment][:message])
     comment.user_id = current_user.id
