@@ -2,10 +2,14 @@ Rails.application.routes.draw do
   get 'top/main'
   post 'top/login'
   get 'top/logout'
+  get 'stocks/index'
+  post 'stocks/new'
+  get 'stocks/show'
+  post 'stocks/create'
   resources :users
   resources :comments
   resources :likes, only: [:create, :destroy]
-  resources :stocks, only: [:index, :new, :create, :show]
+  resources :stocks
   
   root 'top#login'
   
@@ -13,8 +17,6 @@ Rails.application.routes.draw do
   #get 'users/new'
   #get 'users/create'
   #get 'users/destroy'
-  #get 'stock/index'
-  #get 'stock/new'
   #get 'stock/create'
   #get 'stock/destroy'
   #get 'comment/index'

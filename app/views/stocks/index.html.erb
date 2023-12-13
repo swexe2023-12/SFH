@@ -1,4 +1,6 @@
 <% @stocks.each do |e| %>
+<hr>
+
 <p>
   <%= e.message %>
   
@@ -15,42 +17,16 @@
 
 <hr>
 
-# 登録フォーム
 
-<%= form_with model: @stock do |f| %>
-
-  <%= f.label :image, 'ルーム画像' %>
-  <%= f.file_field :image, required: true %>
-
-	<%= f.submit '登録', class: 'submit-button' %>
-<% end %>
+<div>
+  <%= link_to "新規追加", stocks_new_path %>
+</div>
 
 
+<div>
+  <%= button_to "素材一覧", 'stocks/show' %>
+</div>
 
-# 画像の表示
-# 画像が登録されていないとエラーになるため、if room.image.attached?で画像が登録されている場合のみ表示する
-<% @stocks.each do |stock| %>
-  <%= link_to(new_reservation_path(id: room.id)) do%>
-    <p><%= image_tag(stock.image.variant(resize: 399)) if stock.image.attached? %></p>
-  <% end %>
-<% end %>
-
-<% if @stock.present? %>
-  <%= image_tag @stock.image.variant(resize: 399) %>
-<% else %>
-  <p>No image available</p>
-<% end %>
-
-
-<hr>
-
-<%= form_for @stock, url: {action: :create} do |f| %>
-  <%= f.label :message, 'message' %>
-  <%= f.text_field :message %>
-  <%= f.submit "コメント" %>
-<% end %>
-
-<hr>
 
 <% if session[:login_uid] %>
   <p><%= link_to 'ログアウト', top_logout_path %></p>
@@ -58,4 +34,8 @@
   <p><%= link_to 'ログイン', top_main_path %></p>
 <% end %>
 
-<p><%= link_to 'ユーザ一覧', users_path %></p>
+<!--<p><%= link_to 'ユーザ一覧', users_path %></p>-->
+
+<% if @stock && @stock.image.attached? %>
+  <%= image_tag @stock.image %>
+<% end %>
