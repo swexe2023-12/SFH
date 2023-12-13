@@ -70,4 +70,6 @@ group :test do
   gem "capybara"
   gem "selenium-webdriver"
 
+gem 'carrierwave'
+
 end
