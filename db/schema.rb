@@ -54,7 +54,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_12_10_044515) do
   end
 
   create_table "stocks", force: :cascade do |t|
-    t.integer "stock_id"
     t.integer "user_id"
     t.string "content"
     t.datetime "created_at", null: false

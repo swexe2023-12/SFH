@@ -31,8 +31,20 @@ class StocksController < ApplicationController
     redirect_to stocks_path
   end
   
-  def stock_params
-    params.require(:stock).permit(:id, :stock_id, :user_id, :content, :image)
+  private
+    # Use callbacks to share common setup or constraints between actions.
+    def set_stock
+      @stock = Stock.find(params[:id])
+    end
+
+    # Only allow a list of trusted parameters through.
+    def stock_params
+      params.require(:stock).permit(:title, :image)
+    end
+  
+  
+  #def stock_params
+    #params.require(:stock).permit(:id, :stock_id, :user_id, :content, :image)
     #params.require(:stock).permit(:content, :image)
-  end
+  #end
 end
